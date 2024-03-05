@@ -5,7 +5,8 @@ from fastapi.staticfiles import StaticFiles
 templates = Jinja2Templates(directory="templates")
 app = FastAPI()
 
-app.mount("/css", StaticFiles(directory="css"), name="css")
+app.mount("/css", StaticFiles(directory="css"
+                              ), name="css")
 
 @app.get("/")
 async def root():
