@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DisplaysTable</title>
+    <link rel="stylesheet" href= {{url_for("css", path ="/testdisplaytable.css")}}>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Dogs name</th>
+            <th>age</th>
+        </tr>
+        {% for dog in dogs%}
+        <tr>
+            <td>{{dog.name}}</td>
+            <td>{{dog.age}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

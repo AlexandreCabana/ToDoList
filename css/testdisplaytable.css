@@ -1,0 +1,7 @@
+table {
+  border-collapse: collapse;
+}
+td {
+  text-align: center;
+}
+tr:hover {background-color: coral;}
