@@ -47,5 +47,10 @@ async def additem(taskname: str = Form(...), duedate: str = Form(...)) -> Redire
 
 @app.post("/completeitem/")
 async def completeitem(taskid: int = Form(...), value:bool = Form(False)) -> RedirectResponse:
-    items[int(taskid)-1]["is_completed"] = not items[int(taskid)-1]["is_completed"]
+    items[taskid-1]["is_completed"] = not items[int(taskid)-1]["is_completed"]
+    return RedirectResponse("http://127.0.0.1:8000", status_code=status.HTTP_303_SEE_OTHER)
+
+@app.post("/changename/")
+async def changename(taskid: int = Form(...), taskname: str = Form(...)) -> RedirectResponse:
+    items[taskid-1]["name"] = taskname
     return RedirectResponse("http://127.0.0.1:8000", status_code=status.HTTP_303_SEE_OTHER)

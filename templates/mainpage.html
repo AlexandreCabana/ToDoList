@@ -19,7 +19,12 @@
         {%for item in items %}
         <tr>
             <td>{{item["id"]}}</td>
-            <td>{{item["name"]}}</td>
+            <td>
+                <form action="/changename/" method="post">
+                    <input type="hidden" id = "taskid" name = "taskid" value= {{item["id"]}}>
+                    <input type="text" id="taskname" name="taskname" value={{item["name"]}}>
+                </form>
+            </td>
             <td>{{item["due_date"]}}</td>
             <td>
                 <form action="/completeitem/" method="post">
