@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href= {{url_for("css", path ="/mainpage.css")}}>
+    <title>Main-Page</title>
+</head>
+<body>
+    <a href="/additem/">
+        <button type="button">Add Item</button>
+    </a>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Tâche</th>
+            <th>Date</th>
+            <th>Completed</th>
+        </tr>
+        {%for item in items %}
+        <tr>
+            <td>{{item["id"]}}</td>
+            <td>{{item["name"]}}</td>
+            <td>{{item["due_date"]}}</td>
+            <td>
+                <form action="/completeitem/" method="post">
+                    <input type="hidden" id = "taskid" name = "taskid" value= {{item["id"]}}>
+                    {% if item["is_completed"]%}
+                        <input type="checkbox" name="value" id="value" onChange="this.form.submit()" checked>
+                    {% elif not item["is_completed"] %}
+                        <input type="checkbox" name="value" id="value" onChange="this.form.submit()">
+                    {% endif %}
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

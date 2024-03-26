@@ -1,0 +1,7 @@
+POST http://localhost:8000/additem/
+Content-Type: application/json
+
+{
+    "name": "Dentist",
+    "due_date": "2024-03-06 9:00"
+}

@@ -5,11 +5,14 @@
     <title>ToDoList-Add Item</title>
 </head>
 <body>
-<form>
-     <label for="TaskName">Task name:</label><br>
-    <input type="text", id = "TaskName", name="TaskName"><br>
-    <label for="DueDate">Due date:</label><br>
-    <input type="datetime-local", id="DueDate", name="DueDate">
+<form method="post", action="">
+     <label for="taskname">Task name:</label><br>
+    <input type="text", id = "taskname", name="taskname"><br>
+    <label for="duedate">Due date:</label><br>
+    <input type="datetime-local", id="duedate", name="duedate"><br>
+    <a href="http://127.0.0.1:8000/additem/">
+        <input type="submit">
+    </a>
 </form>
 </body>
 </html>

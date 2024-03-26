@@ -1,0 +1,13 @@
+table, th, td{
+  border: 1px solid;
+  border-color: black;
+  border-width: medium;
+}
+tr:hover {background-color: lightgray}
+table {
+  border-collapse: collapse;
+
+}
+td {
+  text-align: center;
+}
