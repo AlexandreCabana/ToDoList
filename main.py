@@ -54,3 +54,12 @@ async def completeitem(taskid: int = Form(...), value:bool = Form(False)) -> Red
 async def changename(taskid: int = Form(...), taskname: str = Form(...)) -> RedirectResponse:
     items[taskid-1]["name"] = taskname
     return RedirectResponse("http://127.0.0.1:8000", status_code=status.HTTP_303_SEE_OTHER)
+@app.post("/changedate/")
+async def changedate(taskid: int = Form(...), taskdate: str = Form(...)) -> RedirectResponse:
+    items[taskid-1]["due_date"] = taskdate
+    return RedirectResponse("http://127.0.0.1:8000", status_code=status.HTTP_303_SEE_OTHER)
+
+@app.post("/deleted/")
+async def deleteditem(taskid: int = Form(...)):
+    del items[taskid-1]
+    return RedirectResponse("http://127.0.0.1:8000", status_code=status.HTTP_303_SEE_OTHER)

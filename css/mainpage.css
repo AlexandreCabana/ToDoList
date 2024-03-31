@@ -11,3 +11,8 @@ table {
 td {
   text-align: center;
 }
+.hideinputfield{
+    background: transparent;
+    border: none;
+    outline-width: 0;
+}

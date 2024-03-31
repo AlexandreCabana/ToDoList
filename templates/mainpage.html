@@ -22,10 +22,16 @@
             <td>
                 <form action="/changename/" method="post">
                     <input type="hidden" id = "taskid" name = "taskid" value= {{item["id"]}}>
-                    <input type="text" id="taskname" name="taskname" value={{item["name"]}}>
+                    <input class="hideinputfield" type="text" id="taskname" name="taskname" value="{{item["name"]}}" onChange="this.form.submit()">
                 </form>
             </td>
-            <td>{{item["due_date"]}}</td>
+            <td>
+                <form action="/changedate/" method="post">
+                    <input type="hidden" id = "taskid" name = "taskid" value= {{item["id"]}}>
+                    <div class="div-1">
+                        <input class="hideinputfield" type="datetime-local" id="taskdate" name="taskdate" value={{item["due_date"]}} onChange="this.form.submit()">
+                    </div>
+                </form></td>
             <td>
                 <form action="/completeitem/" method="post">
                     <input type="hidden" id = "taskid" name = "taskid" value= {{item["id"]}}>
@@ -35,6 +41,11 @@
                         <input type="checkbox" name="value" id="value" onChange="this.form.submit()">
                     {% endif %}
                 </form>
+            </td>
+            <td>
+                <form action="/deleted/" method="post">
+                    <input type="hidden" id = "taskid" name = "taskid" value="{{item["id"]}}">
+                    <input type="image" src="https://www.svgrepo.com/show/21045/delete-button.svg" alt="Submit" width="20">
             </td>
         </tr>
         {% endfor %}
