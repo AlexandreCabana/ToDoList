@@ -21,31 +21,31 @@
             <td>{{item["id"]}}</td>
             <td>
                 <form action="/changename/" method="post">
-                    <input type="hidden" id = "taskid" name = "taskid" value= {{item["id"]}}>
-                    <input class="hideinputfield" type="text" id="taskname" name="taskname" value="{{item["name"]}}" onChange="this.form.submit()">
+                    <input type="hidden" id = "taskid" name = "taskid" value= {{item.id}}>
+                    <input class="hideinputfield" type="text" id="taskname" name="taskname" value="{{item.name}}" onChange="this.form.submit()">
                 </form>
             </td>
             <td>
                 <form action="/changedate/" method="post">
-                    <input type="hidden" id = "taskid" name = "taskid" value= {{item["id"]}}>
+                    <input type="hidden" id = "taskid" name = "taskid" value= {{item.id}}>
                     <div class="div-1">
-                        <input class="hideinputfield" type="datetime-local" id="taskdate" name="taskdate" value={{item["due_date"]}} onChange="this.form.submit()">
+                        <input class="hideinputfield" type="datetime-local" id="taskdate" name="taskdate" value={{item["duedate"]}} onChange="this.form.submit()">
                     </div>
                 </form></td>
             <td>
                 <form action="/completeitem/" method="post">
-                    <input type="hidden" id = "taskid" name = "taskid" value= {{item["id"]}}>
-                    {% if item["is_completed"]%}
+                    <input type="hidden" id = "taskid" name = "taskid" value= {{item.id}}>
+                    {% if item.is_completed %}
                         <input type="checkbox" name="value" id="value" onChange="this.form.submit()" checked>
-                    {% elif not item["is_completed"] %}
+                    {% elif not item.is_completed %}
                         <input type="checkbox" name="value" id="value" onChange="this.form.submit()">
                     {% endif %}
                 </form>
             </td>
             <td>
                 <form action="/deleted/" method="post">
-                    <input type="hidden" id = "taskid" name = "taskid" value="{{item["id"]}}">
-                    <input type="image" src="https://www.svgrepo.com/show/21045/delete-button.svg" alt="Submit" width="20">
+                    <input type="hidden" id = "taskid" name = "taskid" value="{{item.id}}">
+                    <input type="image" src="{{url_for("Image", path ="/delete-button.svg")}}" alt="Submit" width="20">
             </td>
         </tr>
         {% endfor %}
