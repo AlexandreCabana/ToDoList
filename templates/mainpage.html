@@ -46,6 +46,7 @@
                 <form action="/deleted/" method="post">
                     <input type="hidden" id = "taskid" name = "taskid" value="{{item.id}}">
                     <input type="image" src="{{url_for("Image", path ="/delete-button.svg")}}" alt="Submit" width="20">
+                </form>
             </td>
         </tr>
         {% endfor %}
